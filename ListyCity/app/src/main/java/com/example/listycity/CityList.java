@@ -12,7 +12,7 @@ public class CityList {
 
     /**
      * This adds a city to the list if the city does not exist
-     * @param city name of city to add to list
+     * @param city city object to add to list
      */
     public void add(City city) {
         if (cities.contains(city)) {
@@ -29,5 +29,34 @@ public class CityList {
         List<City> list = cities;
         Collections.sort(list);
         return list;
+    }
+
+    /**
+     * This tells you if a city is in the list
+     * @param city city to check if in the list
+     * @return boolean True if city is in the list, False otherwise
+     */
+    public Boolean hasCity(City city) {
+        return this.cities.contains(city);
+    }
+
+    /**
+     * Delete city from list if it exists (else throw exception)
+     * @param city city to remove from list
+     */
+    public void delete(City city) {
+        if(this.cities.contains(city)) {
+            this.cities.remove(city);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * Counts the number of cities in the list
+     * @return int number of cities in the list
+     */
+    public int countCities() {
+        return this.cities.size();
     }
 }
